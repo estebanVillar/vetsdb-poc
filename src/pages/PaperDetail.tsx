@@ -90,7 +90,7 @@ function ManagePanel({ paper }: { paper: Paper }) {
           <input ref={fileRef} type="file" accept="application/pdf" className="hidden" onChange={e => e.target.files?.[0] && upload(e.target.files[0])} />
           <div className="flex flex-wrap gap-2">
             <Button disabled={busy} onClick={() => fileRef.current?.click()}><Upload size={14} />Subir PDF y enviar a revisión</Button>
-            <Button variant="secondary" disabled={busy} onClick={() => s.submitForReview(paper.id, { fileUrl: '/docs/demo-telemedicina-rural.pdf', fileName: 'documento-ejemplo.pdf', uploadedAt: new Date().toISOString() })}>
+            <Button variant="secondary" disabled={busy} onClick={() => s.submitForReview(paper.id, { fileUrl: `${import.meta.env.BASE_URL}docs/demo-telemedicina-rural.pdf`, fileName: 'documento-ejemplo.pdf', uploadedAt: new Date().toISOString() })}>
               Usar PDF de ejemplo
             </Button>
           </div>

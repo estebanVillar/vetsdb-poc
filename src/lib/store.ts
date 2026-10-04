@@ -282,7 +282,9 @@ export const useStore = create<State>()(
       }
     },
     {
-      name: 'vetsdb-poc-v1',
+      // Subir este número fuerza a los navegadores con datos guardados (localStorage) a
+      // regenerar el seed en lugar de reutilizar uno desactualizado o roto.
+      name: 'vetsdb-poc-v2',
       partialize: s => {
         const { users, groups, memberships, topics, papers, requests, grants, conversations, messages, notifications, events, audit, currentUserId } = s
         return { users, groups, memberships, topics, papers, requests, grants, conversations, messages, notifications, events, audit, currentUserId }

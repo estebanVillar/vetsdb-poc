@@ -129,7 +129,8 @@ const P = (p: Omit<Paper, 'createdAt' | 'updatedAt' | 'language' | 'visibleGroup
   ...p,
 })
 
-const v1 = (file: string, d: number) => [{ version: 1, fileUrl: `/docs/${file}`, fileName: file, uploadedAt: daysAgo(d) }]
+// import.meta.env.BASE_URL ya termina en '/' (p. ej. '/' en local, '/vetsdb-poc/' en GitHub Pages).
+const v1 = (file: string, d: number) => [{ version: 1, fileUrl: `${import.meta.env.BASE_URL}docs/${file}`, fileName: file, uploadedAt: daysAgo(d) }]
 
 const PAPERS: Paper[] = [
   P({
