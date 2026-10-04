@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/* Institutional look inspired by PubMed / NCBI: navy chrome, link-blue titles, near-square corners, no shadows. */
+@theme {
+  --font-sans: "Lato", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Merriweather", Georgia, serif;
+
+  --color-brand-50: #eef4fa;
+  --color-brand-100: #dce8f4;
+  --color-brand-200: #b6cfe7;
+  --color-brand-300: #84aed5;
+  --color-brand-400: #4f88bd;
+  --color-brand-500: #2e6ca6;
+  --color-brand-600: #245f98;
+  --color-brand-700: #20558a;
+  --color-brand-800: #1a4470;
+  --color-brand-900: #112e51;
+  --color-brand-950: #0b1f38;
+
+  --color-ink-50: #f7f7f8;
+  --color-ink-100: #f0f0f1;
+  --color-ink-200: #dfe0e2;
+  --color-ink-300: #c4c6ca;
+  --color-ink-400: #8e9198;
+  --color-ink-500: #5b616b;
+  --color-ink-600: #4a4f57;
+  --color-ink-700: #373b42;
+  --color-ink-800: #26292e;
+  --color-ink-900: #1b1b1b;
+
+  /* Journal-citation green, as in PubMed result lists. */
+  --color-cite: #2c6e3f;
+}
+
+body {
+  background: #fff;
+  color: var(--color-ink-900);
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  th, td {
+    padding-right: 0.75rem;
+  }
+  thead th {
+    border-bottom: 2px solid var(--color-ink-300);
+    color: var(--color-ink-700);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-align: left;
+    background: var(--color-ink-50);
+  }
+  a {
+    text-underline-offset: 2px;
+  }
+}
+
+@media print {
+  body.viewer-open * {
+    display: none !important;
+  }
+  body.viewer-open::after {
+    content: "La impresión está deshabilitada para este documento en vetsDB.";
+    display: block;
+    padding: 2rem;
+    font-size: 18px;
+  }
+}
